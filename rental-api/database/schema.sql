@@ -42,7 +42,4 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Índices para otimizar buscas comuns
-CREATE INDEX IF NOT EXISTS idx_reservations_dates ON reservations (checkin_date, checkout_date);
-CREATE INDEX IF NOT EXISTS idx_reservations_apartment_id ON reservations (apartment_id);
-CREATE INDEX IF NOT EXISTS idx_reservations_contact_id ON reservations (contact_id);
 CREATE INDEX IF NOT EXISTS idx_apartments_city ON apartments (city);
