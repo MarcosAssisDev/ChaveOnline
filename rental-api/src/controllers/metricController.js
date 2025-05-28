@@ -18,7 +18,6 @@ function allAsync(sql, params = []) {
 exports.getChannelSummary = async (req, res) => {
     const today = new Date();
     const thirtyDaysAgo = format(subDays(today, 30), 'yyyy-MM-dd');
-    const currentDate = format(today, 'yyyy-MM-dd'); // Para consistência se precisasse do fim do período
 
     const sql = `
         SELECT
