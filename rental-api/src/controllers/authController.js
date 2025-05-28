@@ -1,4 +1,3 @@
-// src/controllers/authController.js
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../services/db');
@@ -79,15 +78,14 @@ exports.loginUser = async (req, res) => {
         const payload = {
             user: {
                 id: user.id,
-                username: user.username
-                // você pode adicionar roles aqui se tiver
+                username: user.username              
             }
         };
 
         jwt.sign(
             payload,
             jwtSecret,
-            { expiresIn: '1h' }, // Token expira em 1 hora (ajuste conforme necessário)
+            { expiresIn: '1h' }, // Token expira em 1 hora 
             (err, token) => {
                 if (err) throw err;
                 res.json({ token });
