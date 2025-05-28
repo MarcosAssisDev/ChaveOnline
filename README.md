@@ -88,7 +88,7 @@ Siga os passos abaixo para configurar e rodar a aplicação na sua máquina loca
 
 4.  **Inicie o servidor backend:**
     ```bash
-    node src/app.js
+    npm start
     ```
     O backend deverá estar rodando em `http://localhost:3000`. O banco de dados SQLite (`database/rental.db`) será criado automaticamente na primeira inicialização, junto com as tabelas e dados iniciais (seed data para apartamentos e contatos).
 
