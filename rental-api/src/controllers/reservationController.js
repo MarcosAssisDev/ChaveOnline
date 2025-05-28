@@ -168,8 +168,6 @@ exports.searchReservations = async (req, res) => {
         return res.status(400).json({ error: 'Invalid date format. Use YYYY-MM-DD.' });
     }
     
-    // A query busca reservas cujo período (checkin_date a checkout_date)
-    // se sobreponha com o período de busca (startDate a endDate) E que sejam na cidade especificada.
     const sql = `
         SELECT
             r.id as reservation_id,
@@ -188,9 +186,7 @@ exports.searchReservations = async (req, res) => {
               r.checkin_date < ? AND r.checkout_date > ?
         ORDER BY r.checkin_date;
     `;
-    // Nota: A lógica de sobreposição de datas pode ser complexa.
-    // Esta é uma forma comum: (StartA < EndB) and (EndA > StartB)
-    // No nosso caso: (r.checkin_date < endDate) AND (r.checkout_date > startDate)
+
 
     try {
         const reservations = await allAsync(sql, [city, endDate, startDate]);
