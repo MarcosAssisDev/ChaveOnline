@@ -42,7 +42,7 @@ const Navbar = () => {
                     <>
                         <Link to="/dashboard" style={navLinkStyle}>Dashboard</Link>
                         <Link to="/reservations" style={navLinkStyle}>Reservas</Link>
-                        <Link to="/reservations/new" style={navLinkStyle}>Nova Reservar</Link>
+                        <Link to="/reservations/new" style={navLinkStyle}>Nova Reserva</Link>
                         {/* O link de Nova Reserva já existe na página de Reservas */}
                         <span style={{ ...navLinkStyle, color: '#555' }}>Olá, {user?.username || 'Usuário'}!</span>
                         <button onClick={handleLogout} style={{ marginLeft: '1rem' }}>Sair</button>
