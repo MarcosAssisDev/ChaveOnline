@@ -1,4 +1,4 @@
-// src/pages/AddReservationPage.jsx
+//
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiClient from '../services/apiService';
@@ -98,12 +98,12 @@ const AddReservationPage = () => {
                 guests: parseInt(guests),
                 channel: channel,
             };
-            // O total_price é calculado no backend
+            
 
             await apiClient.post('/reservations', reservationData);
             setFormSuccess('Reserva criada com sucesso! Redirecionando...');
             
-            // Limpar formulário (opcional, já que vamos redirecionar)
+            
             setSelectedApartmentId('');
             setSelectedContactId('');
             setCheckinDate('');
@@ -112,7 +112,7 @@ const AddReservationPage = () => {
             setChannel('direto');
 
             setTimeout(() => {
-                navigate('/reservations'); // Redireciona para a lista de reservas
+                navigate('/reservations'); 
             }, 2000);
 
         } catch (err) {
@@ -190,7 +190,7 @@ const AddReservationPage = () => {
     );
 };
 
-// Estilos básicos (podem ser os mesmos da ReservationsPage ou ajustados)
+
 const formStyle = {
     display: 'flex',
     flexDirection: 'column',

@@ -1,4 +1,4 @@
-// src/pages/ReservationsPage.jsx
+//
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import apiClient from '../services/apiService';
@@ -8,7 +8,7 @@ const ReservationsPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // Filtros
+    
     const [filterCity, setFilterCity] = useState('');
     const [filterStartDate, setFilterStartDate] = useState('');
     const [filterEndDate, setFilterEndDate] = useState('');
@@ -19,41 +19,41 @@ const ReservationsPage = () => {
         try {
             let url = '/reservations';
             if (params.city && params.startDate && params.endDate) {
-                // Se todos os filtros de busca estiverem presentes, usa o endpoint de busca
+                
                 url = `/reservations/search?city=${encodeURIComponent(params.city)}&startDate=${params.startDate}&endDate=${params.endDate}`;
             } else if (Object.keys(params).length > 0 && !(params.city && params.startDate && params.endDate)) {
-                // Se alguns filtros estão presentes mas não todos para a busca específica,
-                // poderia indicar um erro de UI ou lógica, ou simplesmente carregar tudo.
-                // Por simplicidade, se não for uma busca completa, carregamos todas as reservas.
-                // Ou você pode mostrar uma mensagem para o usuário preencher todos os campos de busca.
+                
+                
+                
+                
                 console.warn("Para buscar, preencha cidade, data de início e data de fim.");
-                // Vamos carregar todas se a busca não estiver completa.
+                
             }
             
             const response = await apiClient.get(url);
-            setReservations(response.data || []); // Garante que seja um array
+            setReservations(response.data || []); 
         } catch (err) {
             console.error("Erro ao buscar reservas:", err);
             setError('Falha ao carregar reservas. ' + (err.response?.data?.error || err.message));
-            setReservations([]); // Limpa em caso de erro
+            setReservations([]); 
         } finally {
             setLoading(false);
         }
     }, []);
 
     useEffect(() => {
-        fetchReservations(); // Carrega todas as reservas inicialmente
+        fetchReservations(); 
     }, [fetchReservations]);
 
     const handleSearch = (e) => {
         e.preventDefault();
         if (!filterCity || !filterStartDate || !filterEndDate) {
             setError("Por favor, preencha a cidade, data de início e data de fim para buscar.");
-            // Se quiser limpar a lista atual ou recarregar todas as reservas caso os filtros sejam limpos:
-            // fetchReservations(); // Recarrega todas se a busca for inválida/incompleta
+            
+            
             return;
         }
-        setError(''); // Limpa erros anteriores
+        setError(''); 
         fetchReservations({ city: filterCity, startDate: filterStartDate, endDate: filterEndDate });
     };
 
@@ -62,7 +62,7 @@ const ReservationsPage = () => {
         setFilterStartDate('');
         setFilterEndDate('');
         setError('');
-        fetchReservations(); // Recarrega todas as reservas
+        fetchReservations(); 
     };
 
 

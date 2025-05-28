@@ -59,12 +59,11 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('token');
         setToken(null);
         setUser(null);
-        // Opcional: chamar um endpoint /auth/logout no backend se ele invalidar tokens
     };
 
     return (
         <AuthContext.Provider value={{ user, token, login, register, logout, loading, isAuthenticated: !!user && !!token }}>
-            {!loading && children} {/* Renderiza children somente quando loading for false */}
+            {!loading && children} 
         </AuthContext.Provider>
     );
 };

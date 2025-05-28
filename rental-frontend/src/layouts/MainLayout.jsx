@@ -1,4 +1,4 @@
-// src/layouts/MainLayout.jsx
+//
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -13,24 +13,24 @@ const Navbar = () => {
     };
 
     const navStyle = {
-        backgroundColor: '#ffffff', // Navbar com fundo branco
-        padding: '1rem 2rem', // Aumenta padding lateral
+        backgroundColor: '#ffffff', 
+        padding: '1rem 2rem', 
         marginBottom: '1.5rem',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)', // Sombra suave
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
         display: 'flex',
-        justifyContent: 'space-between', // Para alinhar logo à esquerda e links/botão à direita
+        justifyContent: 'space-between', 
         alignItems: 'center',
     };
 
     const logoStyle = {
         fontWeight: 'bold',
         fontSize: '1.5rem',
-        color: '#007bff', // Logo com a cor primária
+        color: '#007bff', 
     };
     
     const navLinkStyle = {
-        margin: '0 0.75rem', // Espaçamento entre links
-        color: '#333', // Cor dos links da nav
+        margin: '0 0.75rem', 
+        color: '#333', 
         fontWeight: '500',
     };
 
@@ -43,7 +43,6 @@ const Navbar = () => {
                         <Link to="/dashboard" style={navLinkStyle}>Dashboard</Link>
                         <Link to="/reservations" style={navLinkStyle}>Reservas</Link>
                         <Link to="/reservations/new" style={navLinkStyle}>Nova Reserva</Link>
-                        {/* O link de Nova Reserva já existe na página de Reservas */}
                         <span style={{ ...navLinkStyle, color: '#555' }}>Olá, {user?.username || 'Usuário'}!</span>
                         <button onClick={handleLogout} style={{ marginLeft: '1rem' }}>Sair</button>
                     </>
@@ -60,30 +59,30 @@ const Navbar = () => {
 
 const MainLayout = ({ children }) => {
     const mainContainerStyle = {
-        maxWidth: '1200px', // Largura máxima da aplicação
-        margin: '0 auto',    // Centraliza horizontalmente
-        padding: '0 20px 20px 20px', // Padding lateral e inferior
-        flexGrow: 1, // Faz o conteúdo principal crescer para empurrar o footer para baixo
+        maxWidth: '1200px', 
+        margin: '0 auto',    
+        padding: '0 20px 20px 20px', 
+        flexGrow: 1, 
     };
     
     const appWrapperStyle = {
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh', // Garante que o wrapper ocupe toda a altura da viewport
+        minHeight: '100vh', 
     };
 
     const footerStyle = {
         textAlign: 'center',
         padding: '1.5rem',
         borderTop: '1px solid #e0e0e0',
-        backgroundColor: '#ffffff', // Footer com fundo branco
+        backgroundColor: '#ffffff', 
         color: '#555',
-        marginTop: 'auto', // Empurra o footer para o final se o conteúdo for pequeno
+        marginTop: 'auto', 
     };
 
 
     return (
-        <div style={appWrapperStyle}> {/* Envolve tudo para o minHeight e flex direction */}
+        <div style={appWrapperStyle}> 
             <Navbar />
             <main style={mainContainerStyle}>
                 {children}

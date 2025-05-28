@@ -1,6 +1,6 @@
-// src/pages/DashboardPage.jsx
+//
 import React, { useEffect, useState } from 'react';
-import apiClient from '../services/apiService'; // Nosso cliente Axios configurado
+import apiClient from '../services/apiService'; 
 
 const DashboardPage = () => {
     const [channelSummary, setChannelSummary] = useState([]);
@@ -16,11 +16,11 @@ const DashboardPage = () => {
                 setLoadingSummary(true);
                 setErrorSummary('');
                 const response = await apiClient.get('/metrics/channel-summary');
-                setChannelSummary(response.data.length > 0 ? response.data : []); // Garante que seja um array
+                setChannelSummary(response.data.length > 0 ? response.data : []); 
             } catch (err) {
                 console.error("Erro ao buscar resumo por canal:", err);
                 setErrorSummary('Falha ao carregar resumo por canal. ' + (err.response?.data?.error || err.message));
-                setChannelSummary([]); // Define como array vazio em caso de erro
+                setChannelSummary([]); 
             } finally {
                 setLoadingSummary(false);
             }
@@ -30,7 +30,7 @@ const DashboardPage = () => {
             try {
                 setLoadingCities(true);
                 setErrorCities('');
-                const response = await apiClient.get('/metrics/top-cities?limit=5'); // Pegando top 5 cidades
+                const response = await apiClient.get('/metrics/top-cities?limit=5'); 
                 setTopCities(response.data);
             } catch (err) {
                 console.error("Erro ao buscar top cidades:", err);
@@ -48,42 +48,42 @@ const DashboardPage = () => {
     const totalRevenueLastMonth = channelSummary.reduce((acc, item) => acc + item.total_revenue, 0);
 
 
-     // Estilos do Dashboard
-    const sectionTitleStyle = { // Reutilizável para títulos de seção
-        color: '#0056b3', // Azul escuro para títulos de seção
+     
+    const sectionTitleStyle = { 
+        color: '#0056b3', 
         borderBottom: '2px solid #007bff',
         paddingBottom: '0.3em',
         marginBottom: '1em',
     };
     
-    const metricGridStyle = { // Para os cards de métrica
+    const metricGridStyle = { 
         display: 'flex',
-        flexWrap: 'wrap', // Permite que os cards quebrem para a próxima linha em telas menores
-        gap: '20px', // Espaço entre os cards
+        flexWrap: 'wrap', 
+        gap: '20px', 
         marginBottom: '2rem',
     };
 
     const metricCardStyle = {
-        backgroundColor: '#ffffff', // Fundo branco para os cards
+        backgroundColor: '#ffffff', 
         border: '1px solid #e0e0e0',
         padding: '20px',
         borderRadius: '8px',
         boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-        flex: '1', // Permite que os cards cresçam
-        minWidth: '220px', // Largura mínima para cada card
-        color: '#333333', // Cor de texto padrão dentro do card
+        flex: '1', 
+        minWidth: '220px', 
+        color: '#333333', 
     };
 
-    const metricLabelStyle = { // Para o rótulo da métrica (ex: "Total de Reservas")
+    const metricLabelStyle = { 
         fontSize: '1.1rem',
-        color: '#555555', // Cinza mais suave para o rótulo
+        color: '#555555', 
         marginBottom: '0.5rem',
     };
 
     const metricValueStyle = {
         fontSize: '2.2rem',
         fontWeight: 'bold',
-        color: '#007bff', // Valor da métrica em azul vibrante
+        color: '#007bff', 
     };
 
     const listStyle = {
@@ -95,20 +95,19 @@ const DashboardPage = () => {
     const listItemStyle = {
         padding: '10px 0',
         borderBottom: '1px solid #f0f0f0',
-        color: '#333333', // Cor do texto do item da lista
+        color: '#333333', 
         display: 'flex',
         justifyContent: 'space-between',
     };
     
     const listItemStrongStyle = {
-        color: '#0056b3', // Destaque para o nome do canal/cidade
+        color: '#0056b3', 
     };
 
 
     return (
         <div>
             <h1>Dashboard</h1>
-            {/* <p>Bem-vindo ao seu painel de controle!</p> */}
 
             <div style={metricGridStyle}>
                 <div style={metricCardStyle}>

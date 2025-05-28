@@ -1,4 +1,4 @@
-// src/pages/LoginPage.jsx
+//
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ const LoginPage = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/dashboard"; // Para onde redirecionar após login
+    const from = location.state?.from?.pathname || "/dashboard"; 
 
     const handleSubmit = async (e) => {
         e.preventDefault();

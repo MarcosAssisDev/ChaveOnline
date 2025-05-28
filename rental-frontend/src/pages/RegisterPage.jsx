@@ -1,4 +1,4 @@
-// src/pages/RegisterPage.jsx
+
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
@@ -29,8 +29,8 @@ const RegisterPage = () => {
         try {
             await register(username, password);
             setSuccess('Usuário registrado com sucesso! Você pode fazer login agora.');
-            // Opcional: redirecionar para login ou mostrar mensagem para fazer login
-            // navigate('/login');
+            
+            
         } catch (err) {
             console.error("Registration failed:", err.response?.data?.error || err.message);
             setError(err.response?.data?.error || 'Falha no registro. Tente novamente.');
