@@ -54,7 +54,7 @@ function App() {
                         </ProtectedRoute>
                     }
                 />
-                {/* Adicione outras rotas protegidas aqui */}
+             
 
                 {/* Rota para Página Não Encontrada */}
                 <Route path="*" element={<NotFoundPage />} />
