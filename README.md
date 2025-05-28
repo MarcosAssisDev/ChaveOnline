@@ -57,7 +57,7 @@ O projeto está organizado em duas pastas principais:
 
 * **SQLite 3**
 
-## 🚀 Instruções para Rodar Localmente (Sem Docker)
+## 🚀 Instruções para Rodar Localmente 
 
 Siga os passos abaixo para configurar e rodar a aplicação na sua máquina local.
 
@@ -126,6 +126,5 @@ Agora você pode abrir `http://localhost:5173` no seu navegador e usar a aplica�
 * **Frontend SPA com React:** React foi escolhido por sua popularidade, ecossistema robusto e modelo de componentização, que facilita a criação de UIs interativas. Vite foi usado para um desenvolvimento rápido.
 * **Gerenciamento de Estado Global no Frontend:** O `Context API` do React foi usado para gerenciar o estado de autenticação de forma global e simples.
 * **Comunicação API RESTful:** O backend expõe uma API seguindo princípios RESTful para a comunicação com o frontend.
-* **(Futuro) Dockerização:** A aplicação foi planejada para ser facilmente containerizada com Docker (Dockerfiles e docker-compose foram discutidos), visando padronização de ambiente e facilidade de deploy, embora não implementado nesta etapa.
 
 ---
