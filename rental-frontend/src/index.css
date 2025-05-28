@@ -1,0 +1,77 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Fundo principal da página um pouco acinzentado */
+  color: #333333; /* Cor de texto padrão */
+  line-height: 1.6;
+}
+
+#root {
+  /* Usado para ajudar na centralização do conteúdo principal */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Você pode adicionar outros estilos globais aqui se desejar */
+h1, h2, h3, h4, h5, h6 {
+  color: #0056b3; /* Cor mais escura do azul para títulos */
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 5px;
+  box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
+  width: 100%; /* Faz os inputs ocuparem a largura do container do form-group */
+}
+
+label {
+  font-weight: bold;
+  display: block; /* Garante que a label fique acima do input */
+  margin-bottom: 0.2rem;
+}

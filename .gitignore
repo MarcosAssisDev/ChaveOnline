@@ -1,0 +1,33 @@
+# Dependências
+node_modules/
+rental-api/node_modules/
+rental-frontend/node_modules/
+
+# Arquivos de build do frontend
+rental-frontend/dist/
+
+# Arquivos de ambiente (contêm segredos)
+.env
+rental-api/.env
+rental-frontend/.env
+rental-frontend/.env.*
+
+# Arquivo do banco de dados SQLite
+# (Opcional: se você prefere que cada dev crie o seu com o schema/seed)
+# Se quiser versionar o banco com os dados de seed, remova a linha abaixo.
+# Mas, em geral, arquivos de DB binários não são ideais para Git.
+rental-api/database/rental.db
+rental-api/database/rental.db-journal # Arquivo temporário do SQLite
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDE (exemplo para VSCode)
+.vscode/
