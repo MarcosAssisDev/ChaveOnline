@@ -1,7 +1,7 @@
 const db = require('../services/db');
 const { format, subDays } = require('date-fns'); // Para manipulação de datas
 
-// Helper function para rodar queries que retornam múltiplos resultados
+
 function allAsync(sql, params = []) {
     return new Promise((resolve, reject) => {
         db.all(sql, params, (err, rows) => {
@@ -16,7 +16,6 @@ function allAsync(sql, params = []) {
 
 // [GET] Total de reservas e faturamento por canal no último mês
 exports.getChannelSummary = async (req, res) => {
-    // Definindo "último mês" como os últimos 30 dias
     const today = new Date();
     const thirtyDaysAgo = format(subDays(today, 30), 'yyyy-MM-dd');
     const currentDate = format(today, 'yyyy-MM-dd'); // Para consistência se precisasse do fim do período
@@ -30,8 +29,6 @@ exports.getChannelSummary = async (req, res) => {
         WHERE date(created_at) >= ? 
         GROUP BY channel;
     `;
-    // Usamos date(created_at) para comparar apenas a parte da data do timestamp.
-    // O período é dos últimos 30 dias até hoje.
 
     try {
         const summary = await allAsync(sql, [thirtyDaysAgo]);
@@ -47,7 +44,6 @@ exports.getChannelSummary = async (req, res) => {
 
 // [GET] Lista de cidades com mais reservas
 exports.getTopCities = async (req, res) => {
-    // Por padrão, vamos pegar o top 5, mas pode ser um query param
     const limit = parseInt(req.query.limit) || 5;
 
     const sql = `
@@ -69,6 +65,3 @@ exports.getTopCities = async (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve top cities by reservations' });
     }
 };
-
-// Poderíamos adicionar aqui as outras métricas do dashboard futuramente
-// ex: total de reservas no mês (geral), cidades com mais reservas
