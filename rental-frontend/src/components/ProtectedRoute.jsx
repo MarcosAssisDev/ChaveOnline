@@ -7,8 +7,7 @@ const ProtectedRoute = ({ children }) => {
     const { isAuthenticated, loading } = useAuth();
     const location = useLocation();
 
-    if (loading) {
-        // Você pode mostrar um spinner/loading aqui enquanto verifica a autenticação
+    if (loading) {       
         return <div>Carregando...</div>;
     }
 
